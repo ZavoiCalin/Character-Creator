@@ -1,4 +1,5 @@
 package Exceptions;
 
-public class IncorrectCredentials {
+public class IncorrectCredentials extends RuntimeException{
+
 }

@@ -1,4 +1,4 @@
 package Exceptions;
 
-public class NameAlreadyTaken {
+public class NameAlreadyTaken extends RuntimeException{
 }

@@ -13,6 +13,16 @@ public class Character {
         features = l;
     }
 
+    public Character() {}
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void displayFeatures(){
         for(String f:features){
             //arata imaginea atribuita corespunzatoare feature ului
