@@ -1,6 +1,7 @@
 package People;
 
-import Exceptions.*;
+import Exceptions.IncorrectCredentials;
+
 import javax.naming.NameAlreadyBoundException;
 
 public interface Person {

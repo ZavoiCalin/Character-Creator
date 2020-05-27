@@ -4,7 +4,6 @@ import Exceptions.IncorrectCredentials;
 import Exceptions.NameAlreadyTaken;
 import People.Person;
 
-import javax.naming.NameAlreadyBoundException;
 import java.util.ArrayList;
 
 public class Player implements Person {

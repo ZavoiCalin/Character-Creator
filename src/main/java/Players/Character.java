@@ -1,7 +1,5 @@
 package Players;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
-
 import java.util.ArrayList;
 
 public class Character {
