@@ -1,4 +1,4 @@
-package java.javafx.scene.control;
+package javafx.scene.controls;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
