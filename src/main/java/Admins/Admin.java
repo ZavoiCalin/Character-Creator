@@ -1,11 +1,11 @@
 package Admins;
 
 import Exceptions.IncorrectCredentials;
-import People.Person;
+import People.User;
 
 import javax.naming.NameAlreadyBoundException;
 
-public class Admin implements Person {
+public class Admin implements User {
 
     public void logIn() throws IncorrectCredentials {
 

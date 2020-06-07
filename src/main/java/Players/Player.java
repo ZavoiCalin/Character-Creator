@@ -2,11 +2,11 @@ package Players;
 
 import Exceptions.IncorrectCredentials;
 import Exceptions.NameAlreadyTaken;
-import People.Person;
+import People.User;
 
 import java.util.ArrayList;
 
-public class Player implements Person {
+public class Player implements User {
     private String username;
     private String password;
     private ArrayList<Character> chars;

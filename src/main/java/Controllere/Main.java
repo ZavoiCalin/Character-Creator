@@ -1,4 +1,4 @@
-package javafx.scene.controls;
+package Controllere;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +14,10 @@ import java.io.IOException;
 public class Main extends Application {
 
     private static Scene scene;
+
+    public static void main(String[] args) {
+        launch();
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -31,8 +35,6 @@ public class Main extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+
 
 }
