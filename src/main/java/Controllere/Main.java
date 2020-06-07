@@ -15,13 +15,10 @@ public class Main extends Application {
 
     private static Scene scene;
 
-    public static void main(String[] args) {
-        launch();
-    }
-
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"));
+        scene.getStylesheets().add(Main.class.getResource("styles.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
@@ -35,6 +32,8 @@ public class Main extends Application {
         return fxmlLoader.load();
     }
 
-
+    public static void main(String[] args) {
+        launch();
+    }
 
 }
