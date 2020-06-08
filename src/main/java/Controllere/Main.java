@@ -20,19 +20,20 @@ public class Main extends Application {
        // scene = new Scene(loadFXML("primary"));
         //scene.getStylesheets().add(Main.class.getResource("styles.css").toExternalForm());
         stage.setScene(scene);
+        stage.setTitle("Player Menu");
         stage.show();
     }
 
-    /*
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }*/
 
-    /*
-    private static Parent loadFXML(String fxml) throws IOException {
+    static void setRoot(String fxml) throws Exception {
+        scene.setRoot(loadFXML(fxml));
+    }
+
+
+    private static Parent loadFXML(String fxml) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
-    }*/
+    }
 
     public static void main(String[] args) {
         launch();
