@@ -1,8 +1,9 @@
 package services;
 
-import exceptions.EmptyFieldException;
-import exceptions.IncorrectCredentialsException;
-import exceptions.UsernameNotAvailableException;
+import controllers.LoginController;
+import exceptions.*;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -121,5 +122,65 @@ public class User {
         }
     }
 
+    public static void addCharacter(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException, NameNotAvailableException {
+        checkIfFieldsAreEmpty(nameAvatar, deletionKeyAvatar, genderListObs, earListObs, eyeColorListObs, hairstyleListObs);
+        JSONObject obj = new JSONObject();
+        JSONArray arrayPlayer = new JSONArray();
+        JSONParser jp = new JSONParser();
+        Object p;
+        try {
+            FileReader readFile = new FileReader("src/main/resources/Player.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = jp.parse(read);
+            if (p instanceof JSONArray) {
+                arrayPlayer = (JSONArray) p;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Iterator<JSONObject> iterator = arrayPlayer.iterator();
+        JSONObject obj3=new JSONObject();
+        while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+            if ((LoginController.usernam).equals(obj2.get("Username:")))
+            {
+                JSONArray avatars=new JSONArray();
+                avatars=(JSONArray) obj2.get("Character:");
+                obj2.remove("Character:");
+                obj3.put("Character name:", nameAvatar);
+                obj3.put("Deletion key:", deletionKeyAvatar);
+                obj3.put("Gender:", genderListObs);
+                obj3.put("Ears:", earListObs);
+                obj3.put("Eye color:", eyeColorListObs);
+                obj3.put("Hairstyle:", hairstyleListObs);
+                avatars.add(obj3);
+                obj2.put("Character:", avatars);
+                arrayPlayer.add(obj2);
+                arrayPlayer.remove(obj2);
+                break;
+            }
+        }
+
+
+        try {
+            File file = new File("src/main/resources/Player.json");
+            FileWriter fisier = new FileWriter(file.getAbsoluteFile());
+            fisier.write(arrayPlayer.toJSONString());
+            fisier.flush();
+            fisier.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static void checkIfFieldsAreEmpty(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException{
+        if(nameAvatar.isEmpty() | deletionKeyAvatar.isEmpty() | genderListObs==null | earListObs==null | eyeColorListObs==null | hairstyleListObs==null)
+            throw new EmptyCharNameException();
+
+    }
 
 }
