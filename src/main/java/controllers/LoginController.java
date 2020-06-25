@@ -36,33 +36,6 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) { }
 
-  /*  @FXML
-    public void handleSignUpButtonAction(MouseEvent event) throws IOException
-    {
-        //Load Signup Client Screen
-        FXMLLoader loader= new FXMLLoader(getClass().getClassLoader().getResource("SignUpClient.fxml"));
-        Parent root=loader.load();
-        SignUpClientController scene2Controller = loader.getController();
-        //make close button invisible
-        scene2Controller.closeBtn.setVisible(false);
-        //load signup screen where de login picture is
-        root.translateXProperty().set(-1 * 489);
-
-        parentContainer.getChildren().add(root);
-
-        Timeline timeline = new Timeline();
-        //incrementeaza coordonata X
-        KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.millis(950), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(t -> { parentContainer.getChildren().remove(anchorRoot); });
-        timeline.play();
-        //make close button visibile again
-        timeline.setOnFinished(e ->scene2Controller.closeBtn.setVisible(true));
-
-
-
-    }*/
 
     @FXML
     public void handleLoginButtonAction(ActionEvent event) throws IOException, IncorrectCredentialsException {

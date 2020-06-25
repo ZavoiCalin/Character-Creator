@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #efb5a3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CharacterCreationController">
+   <children>
+      <Separator layoutX="718.0" layoutY="2.0" orientation="VERTICAL" prefHeight="993.0" prefWidth="3.0" />
+      <Label layoutX="728.0" layoutY="26.0" prefHeight="191.0" prefWidth="255.0" text="Choose your character's features!" textAlignment="CENTER" textFill="#315f72" wrapText="true">
+         <font>
+            <Font name="Manjari Bold" size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameAvatar" layoutX="149.0" layoutY="143.0" prefHeight="40.0" prefWidth="321.0" promptText="Name" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+      <TextField fx:id="deletionKeyAvatar" layoutX="149.0" layoutY="189.0" prefHeight="40.0" prefWidth="321.0" promptText="Deletion key" style="-fx-background-radius: 10; -fx-border-radius: 10;" />
+      <ImageView fx:id="avatarImage" fitHeight="560.0" fitWidth="560.0" layoutX="77.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="734.0" layoutY="250.0" prefHeight="560.0" prefWidth="249.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #f5f0e1;">
+         <children>
+            <ComboBox fx:id="hairstyleComboBox" layoutX="13.0" layoutY="335.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #ffc13b;" />
+            <Label layoutX="74.0" layoutY="295.0" prefHeight="40.0" prefWidth="102.0" text="Hairstyle">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="eyeColorComboBox" layoutX="14.0" layoutY="237.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #ffc13b;" />
+            <ComboBox fx:id="earsComboBox" layoutX="13.0" layoutY="144.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #ffc13b;" />
+            <Label layoutX="84.0" layoutY="14.0" prefHeight="40.0" prefWidth="79.0" text="Gender">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="84.0" layoutY="104.0" prefHeight="40.0" prefWidth="79.0" text="Ears" textAlignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="197.0" prefHeight="40.0" prefWidth="102.0" text="Eye color">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="genderComboBox" layoutX="13.0" layoutY="54.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #ffc13b;" />
+            <Button fx:id="applyButton" layoutX="62.0" layoutY="419.0" mnemonicParsing="false" onAction="#applyFeatures" prefHeight="47.0" prefWidth="123.0" style="-fx-background-radius: 10; -fx-border-radius: 1232131;" text="Apply" />
+         </children>
+      </Pane>
+      <Label layoutX="13.0" layoutY="30.0" prefHeight="92.0" prefWidth="688.0" text="Please, enter a name and a bye-bye key for your avatar!" textAlignment="CENTER" textFill="#315f72" wrapText="true">
+         <font>
+            <Font name="Manjari Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="creationErrorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="872.0" prefHeight="118.0" prefWidth="680.0" textAlignment="CENTER" textFill="#d92c25" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="createButton" layoutX="794.0" layoutY="838.0" mnemonicParsing="false" onAction="#createChar" prefHeight="47.0" prefWidth="123.0" style="-fx-background-radius: 10; -fx-border-radius: 1232131;" text="Create!" textFill="#315f72" />
+      <Button fx:id="createCancelButton" layoutX="797.0" layoutY="908.0" mnemonicParsing="false" onAction="#switchBackToList" prefHeight="47.0" prefWidth="123.0" style="-fx-background-radius: 10; -fx-border-radius: 1232131;" text="Cancel" textFill="#f51206" />
+   </children>
+</AnchorPane>
