@@ -33,17 +33,12 @@ public class CharacterListScreenController implements Initializable {
     }
 
     public void switchToCreation(ActionEvent event) throws IOException {
-        //switch to home screen
-        Parent home_page_parent1 = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterListScreen.fxml"));
         Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterCreationScreen.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
-        Scene home_page_scene1 = new Scene(home_page_parent1);
-
-
-        Stage app_stage1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage1.setScene(home_page_scene1);
-
-        app_stage1.show();
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();
 
     }
 

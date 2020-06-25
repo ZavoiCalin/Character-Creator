@@ -55,11 +55,12 @@
             <Font name="Manjari Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="creationErrorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="872.0" prefHeight="55.0" prefWidth="680.0" textAlignment="CENTER" textFill="#d92c25">
+      <Label fx:id="creationErrorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="872.0" prefHeight="118.0" prefWidth="680.0" textAlignment="CENTER" textFill="#d92c25" wrapText="true">
          <font>
-            <Font size="20.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="createButton" layoutX="797.0" layoutY="876.0" mnemonicParsing="false" onAction="#createChar" prefHeight="47.0" prefWidth="123.0" style="-fx-background-radius: 10; -fx-border-radius: 1232131;" text="Create!" textFill="#315f72" />
+      <Button fx:id="createButton" layoutX="794.0" layoutY="838.0" mnemonicParsing="false" onAction="#createChar" prefHeight="47.0" prefWidth="123.0" style="-fx-background-radius: 10; -fx-border-radius: 1232131;" text="Create!" textFill="#315f72" />
+      <Button fx:id="createCancelButton" layoutX="797.0" layoutY="908.0" mnemonicParsing="false" onAction="#switchBackToList" prefHeight="47.0" prefWidth="123.0" style="-fx-background-radius: 10; -fx-border-radius: 1232131;" text="Cancel" textFill="#f51206" />
    </children>
 </AnchorPane>

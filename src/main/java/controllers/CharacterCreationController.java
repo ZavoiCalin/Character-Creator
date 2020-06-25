@@ -59,6 +59,9 @@ public class CharacterCreationController implements Initializable {
     @FXML
     public TextField deletionKeyAvatar;
 
+    @FXML
+    public Button createCancelButton;
+
     public void getPath(){
         String p="src/main/resources/images/";
 
@@ -92,7 +95,7 @@ public class CharacterCreationController implements Initializable {
         try
         {
             User.addCharacter(nameAvatar.getText(), deletionKeyAvatar.getText(), (String)genderComboBox.getValue(), (String)earsComboBox.getValue(), (String)eyeColorComboBox.getValue(), (String)hairstyleComboBox.getValue());
-            //Load the Home Page for Provider
+
             Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterListScreen.fxml"));
             Scene home_page_scene = new Scene(home_page_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -128,8 +131,13 @@ public class CharacterCreationController implements Initializable {
         hairstyleComboBox.setEditable(false);
     }
 
-
-
-
+    public void switchBackToList(ActionEvent event) throws IOException {
+        Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterListScreen.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();
+    }
 
 }
