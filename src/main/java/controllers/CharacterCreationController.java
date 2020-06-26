@@ -3,6 +3,7 @@ package controllers;
 import com.sun.corba.se.spi.monitoring.MonitoredAttributeInfo;
 import exceptions.EmptyCharNameException;
 import exceptions.NameNotAvailableException;
+import exceptions.TooManyCharException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -111,6 +112,13 @@ public class CharacterCreationController implements Initializable {
         catch(NameNotAvailableException e)
         {
             creationErrorLabel.setText(e.getMessage());
+        }
+
+        catch(TooManyCharException e)
+        {
+            
+                creationErrorLabel.setText(e.getMessage());
+
         }
     }
 
