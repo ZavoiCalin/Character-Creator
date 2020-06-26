@@ -116,7 +116,7 @@ public class CharacterCreationController implements Initializable {
 
         catch(TooManyCharException e)
         {
-            
+
                 creationErrorLabel.setText(e.getMessage());
 
         }

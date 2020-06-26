@@ -19,7 +19,12 @@
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="avatarImage" fitHeight="137.0" fitWidth="202.0" layoutX="485.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="avatarImage" fitHeight="137.0" fitWidth="202.0" layoutX="449.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="sel1" layoutX="525.0" layoutY="67.0" mnemonicParsing="false" onAction="#button1" text="Select">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children></Pane>
             <Pane fx:id="paneCh2" layoutX="17.0" layoutY="183.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
                <children>
@@ -28,6 +33,12 @@
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="avatarImage1" fitHeight="137.0" fitWidth="202.0" layoutX="449.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="sel2" layoutX="525.0" layoutY="67.0" mnemonicParsing="false" onAction="#button2" text="Select">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children></Pane>
             <Pane fx:id="paneCh3" layoutX="17.0" layoutY="353.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
                <children>
@@ -36,6 +47,12 @@
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="avatarImage2" fitHeight="137.0" fitWidth="202.0" layoutX="449.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="sel3" layoutX="525.0" layoutY="67.0" mnemonicParsing="false" onAction="#button3" text="Select">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children></Pane>
             <Pane fx:id="paneCh4" layoutX="17.0" layoutY="527.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
                <children>
@@ -44,6 +61,11 @@
                         <Font name="DejaVu Sans Mono Bold" size="20.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="avatarImage3" fitHeight="137.0" fitWidth="202.0" layoutX="449.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="sel4" layoutX="525.0" layoutY="67.0" mnemonicParsing="false" onAction="#button4" text="Select">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
                </children></Pane>
          </children></Pane>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="145.0" style="-fx-background-color: #ff6e40; -fx-border-radius: 10; -fx-background-radius: 10;">
