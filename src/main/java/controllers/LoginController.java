@@ -33,8 +33,7 @@ public class LoginController implements Initializable {
 
     public static String usernam;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) { }
+
 
 
     @FXML
@@ -78,6 +77,11 @@ public class LoginController implements Initializable {
             ErrorMessage.setText(e.getMessage());
         }
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //usernam=userTextField.getText();
     }
 
 

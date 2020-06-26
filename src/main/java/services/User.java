@@ -2,8 +2,6 @@ package services;
 
 import controllers.LoginController;
 import exceptions.*;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -77,7 +75,7 @@ public class User {
             if (obj.get("Username:").equals(username)&& obj.get("Password:").equals(encodePassword(key, Vector, password)))
             {
                 correctAccount = true;
-                user = (String)obj.get("Username:");
+                LoginController.usernam = (String)obj.get("Username:");
                 return "Player";
             }
         }
@@ -108,7 +106,7 @@ public class User {
             if (obj.get("Username:").equals(username)&& obj.get("Password:").equals(encodePassword(key, Vector, password)))
             {
                 correctAccount = true;
-                user = (String)obj.get("Username:");
+                LoginController.usernam= (String)obj.get("Username:");
                 return "Admin";
             }
         }
@@ -122,7 +120,7 @@ public class User {
         }
     }
 
-    public static void addCharacter(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException, NameNotAvailableException {
+    public static void addCharacter(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException, NameNotAvailableException, TooManyCharException {
         checkIfFieldsAreEmpty(nameAvatar, deletionKeyAvatar, genderListObs, earListObs, eyeColorListObs, hairstyleListObs);
         JSONObject obj = new JSONObject();
         JSONArray arrayPlayer = new JSONArray();
@@ -147,8 +145,13 @@ public class User {
             JSONObject obj2 = iterator.next();
             if ((LoginController.usernam).equals(obj2.get("Username:")))
             {
+
                 JSONArray avatars=new JSONArray();
                 avatars=(JSONArray) obj2.get("Character:");
+                if(avatars.size()==4)
+                {
+                    throw new TooManyCharException();
+                }
                 obj2.remove("Character:");
                 obj3.put("Character name:", nameAvatar);
                 obj3.put("Deletion key:", deletionKeyAvatar);
@@ -177,10 +180,51 @@ public class User {
 
     }
 
+    public static JSONArray displayFeatures()
+    {
+        JSONArray arrayPlayer = new JSONArray();
+        JSONParser jp = new JSONParser();
+        Object p;
+        try {
+            FileReader readFile = new FileReader("src/main/resources/Player.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = jp.parse(read);
+            if (p instanceof JSONArray) {
+                arrayPlayer = (JSONArray) p;
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        JSONObject obj3 = new JSONObject();
+        Iterator<JSONObject> iterator = arrayPlayer.iterator();
+        JSONArray display = new JSONArray();
+        while (iterator.hasNext())
+        {
+            JSONObject obj2 = iterator.next();
+            if (obj2.get("Username:").equals(LoginController.usernam))
+            {
+
+                //takes the right vector that must be displayed
+                display= (JSONArray) obj2.get("Character:");
+
+
+            }
+        }
+        return display;
+
+    }
+
+
     private static void checkIfFieldsAreEmpty(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException{
         if(nameAvatar.isEmpty() | deletionKeyAvatar.isEmpty() | genderListObs==null | earListObs==null | eyeColorListObs==null | hairstyleListObs==null)
             throw new EmptyCharNameException();
 
     }
+
+
 
 }

@@ -3,13 +3,49 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="881.0" prefWidth="1003.0" style="-fx-background-color: #f5f0e1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CharacterListScreenController">
    <children>
-      <Pane layoutX="239.0" layoutY="115.0" prefHeight="706.0" prefWidth="699.0" style="-fx-background-color: #ecc19c;" />
+      <Pane layoutX="239.0" layoutY="115.0" prefHeight="706.0" prefWidth="699.0" style="-fx-background-color: #ecc19c;">
+         <children>
+            <Pane fx:id="paneCh1" layoutX="17.0" layoutY="14.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <children>
+                  <Label fx:id="labelCh1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="avatarImage" fitHeight="137.0" fitWidth="202.0" layoutX="485.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+               </children></Pane>
+            <Pane fx:id="paneCh2" layoutX="17.0" layoutY="183.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <children>
+                  <Label fx:id="labelCh2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="paneCh3" layoutX="17.0" layoutY="353.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <children>
+                  <Label fx:id="labelCh3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="paneCh4" layoutX="17.0" layoutY="527.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <children>
+                  <Label fx:id="labelCh4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+         </children></Pane>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="145.0" style="-fx-background-color: #ff6e40; -fx-border-radius: 10; -fx-background-radius: 10;">
          <children>
             <Label fx:id="player" alignment="CENTER" layoutX="-1.0" layoutY="43.0" prefHeight="16.0" prefWidth="145.0" text="Player" />
