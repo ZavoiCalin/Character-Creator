@@ -208,7 +208,7 @@ public class User {
             if (obj2.get("Username:").equals(LoginController.usernam))
             {
 
-                //takes the right vector that must be displayed
+
                 display= (JSONArray) obj2.get("Character:");
 
 
