@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -18,6 +19,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import services.User;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -58,6 +60,67 @@ public class CharacterListScreenController implements Initializable {
 
     @FXML
     public ImageView avatarImage;
+    @FXML
+    public ImageView avatarImage1;
+    @FXML
+    public ImageView avatarImage2;
+    @FXML
+    public ImageView avatarImage3;
+
+    @FXML
+    public Button sel1;
+    @FXML
+    public Button sel2;
+    @FXML
+    public Button sel3;
+    @FXML
+    public Button sel4;
+
+
+    public void button1(ActionEvent event){
+        avatarImage.setVisible(true);
+        avatarImage1.setVisible(false);
+        avatarImage2.setVisible(false);
+        avatarImage3.setVisible(false);
+        sel1.setVisible(false);
+        sel2.setVisible(true);
+        sel3.setVisible(true);
+        sel4.setVisible(true);
+
+    }
+    public void button2(ActionEvent event){
+        avatarImage.setVisible(false);
+        avatarImage1.setVisible(true);
+        avatarImage2.setVisible(false);
+        avatarImage3.setVisible(false);
+        sel1.setVisible(true);
+        sel2.setVisible(false);
+        sel3.setVisible(true);
+        sel4.setVisible(true);
+
+    }
+    public void button3(ActionEvent event){
+        avatarImage.setVisible(false);
+        avatarImage1.setVisible(false);
+        avatarImage2.setVisible(true);
+        avatarImage3.setVisible(false);
+        sel1.setVisible(true);
+        sel2.setVisible(true);
+        sel3.setVisible(false);
+        sel4.setVisible(true);
+
+    }
+    public void button4(ActionEvent event){
+        avatarImage.setVisible(false);
+        avatarImage1.setVisible(false);
+        avatarImage2.setVisible(false);
+        avatarImage3.setVisible(true);
+        sel1.setVisible(true);
+        sel2.setVisible(true);
+        sel3.setVisible(true);
+        sel4.setVisible(false);
+
+    }
 
     public void switchToCreation(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterCreationScreen.fxml"));
@@ -78,6 +141,11 @@ public class CharacterListScreenController implements Initializable {
         paneCh3.setVisible(false);
         paneCh4.setVisible(false);
 
+        avatarImage.setVisible(false);
+        avatarImage1.setVisible(false);
+        avatarImage2.setVisible(false);
+        avatarImage3.setVisible(false);
+
 
         player.setText(LoginController.usernam);
 
@@ -87,7 +155,33 @@ public class CharacterListScreenController implements Initializable {
 
 
 
+    public Image getPath(String gender, String  ears, String eyes, String hair){
+        String p="src/main/resources/images/";
 
+        if(gender.equals("Male"))
+            p+="m";
+        else p+="f";
+
+        if(ears.equals("Human"))
+            p+="-human";
+        else if(ears.equals("Elf"))
+            p+="-elf";
+        else p+="-hobbit";
+
+        if(eyes.equals("Brown"))
+            p+="-brown";
+        else if(eyes.equals("Blue"))
+            p+="-blue";
+        else p+="-green";
+
+        if(hair.equals("Short"))
+            p+="-short.png";
+        else p+="-long.png";
+
+        File file = new File(p);
+        Image image = new Image(file.toURI().toString());
+        return image;
+    }
     public void displayCh()  {
         //try {
         JSONArray array=new JSONArray();
@@ -101,21 +195,28 @@ public class CharacterListScreenController implements Initializable {
             if(i==0){
                 labelCh1.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh1.setVisible(true);
+                avatarImage.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
             }
             if(i==1){
                 labelCh2.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh2.setVisible(true);
+                avatarImage1.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
+
 
             }
             if(i==2){
                 labelCh3.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh3.setVisible(true);
+                avatarImage2.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
+
 
             }
             if(i==3){
                 labelCh4.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh4.setVisible(true);
+                avatarImage3.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
+
 
             }
 

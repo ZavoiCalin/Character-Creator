@@ -106,7 +106,7 @@ public class CharacterCreationController implements Initializable {
         }
         catch (EmptyCharNameException e)
         {
-            //error if not all fields are completed
+
             creationErrorLabel.setText(e.getMessage());
         }
         catch(NameNotAvailableException e)
@@ -116,7 +116,7 @@ public class CharacterCreationController implements Initializable {
 
         catch(TooManyCharException e)
         {
-            
+
                 creationErrorLabel.setText(e.getMessage());
 
         }
