@@ -208,7 +208,7 @@ public class User {
             if (obj2.get("Username:").equals(LoginController.usernam))
             {
 
-
+                //takes the right vector that must be displayed
                 display= (JSONArray) obj2.get("Character:");
 
 
@@ -225,7 +225,7 @@ public class User {
 
     }
 
-    public static String deletionkey(String key) {
+    public static String deletionkey(String key) throws WrongDeletionKeyException {
         JSONObject obj = new JSONObject();
         String name=null;
         JSONArray arrayPlayer = new JSONArray();
@@ -249,7 +249,7 @@ public class User {
         while (iterator.hasNext()) {
             JSONObject obj2 = iterator.next();
             if ((LoginController.usernam).equals(obj2.get("Username:"))) {
-
+                boolean b=false;
                 JSONArray avatars = new JSONArray();
                 avatars = ((JSONArray)obj2.get("Character:"));
                 JSONObject obj4= new JSONObject();
@@ -261,11 +261,16 @@ public class User {
                     if (obj3.get("Deletion key:").equals(key)) {
                         name=(String)obj3.get("Character name:");
                         obj4=obj3;
+                        b=true;
                         break;
 
 
 
                     }
+                }
+                if(b==false)
+                {
+                    throw new WrongDeletionKeyException();
                 }
 
                 ((JSONArray)obj2.get("Character:")).remove(obj4);

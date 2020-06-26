@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.WrongDeletionKeyException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -84,6 +85,10 @@ public class CharacterListScreenController implements Initializable {
     public Button sel3;
     @FXML
     public Button sel4;
+
+    @FXML
+    public Label errorDeleteLabel;
+
     public void button1(ActionEvent event){
         avatarImage.setVisible(true);
         avatarImage1.setVisible(false);
@@ -236,35 +241,31 @@ public class CharacterListScreenController implements Initializable {
 
     }
 
-    public void handleDelete(ActionEvent event)
-    {
-        String name=User.deletionkey(deletionKey.getText());
-        //System.out.println(l1);
-        //System.out.println(name);
-        if(name.equals(l1))
-        {
-            paneCh1.setVisible(false);
+    public void handleDelete(ActionEvent event) throws WrongDeletionKeyException {
 
+        try {
+            String name = User.deletionkey(deletionKey.getText());
+            //System.out.println(l1);
+            //System.out.println(name);
+
+            if (name.equals(l1)) {
+                paneCh1.setVisible(false);
+                errorDeleteLabel.setText("");
+            } else if (name.equals(l2)) {
+                paneCh2.setVisible(false);
+                errorDeleteLabel.setText("");
+
+            } else if (name.equals(l3)) {
+                paneCh3.setVisible(false);
+                errorDeleteLabel.setText("");
+            } else if (name.equals(l4)) {
+                paneCh4.setVisible(false);
+                errorDeleteLabel.setText("");
+            }
+
+       }catch(WrongDeletionKeyException e){
+           errorDeleteLabel.setText(e.getMessage());
         }
-        else if(name.equals(l2))
-        {
-            paneCh2.setVisible(false);
-
-        }
-        else if(name.equals(l3))
-        {
-            paneCh3.setVisible(false);
-
-        }
-        else if(name.equals(l3))
-        {
-            paneCh4.setVisible(false);
-
-        }
-
-
-
-
 
     }
 

@@ -87,5 +87,6 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
+      <Label fx:id="errorDeleteLabel" layoutX="502.0" layoutY="835.0" prefHeight="23.0" prefWidth="458.0" textFill="#eb0707" />
    </children>
 </AnchorPane>
