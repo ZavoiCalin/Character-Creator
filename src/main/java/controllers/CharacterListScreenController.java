@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -66,6 +67,14 @@ public class CharacterListScreenController implements Initializable {
     public ImageView avatarImage2;
     @FXML
     public ImageView avatarImage3;
+    @FXML
+    public TextField deletionKey;
+    @FXML
+    public Button delete;
+    String l1;
+    String l2;
+    String l3;
+    String l4;
 
     @FXML
     public Button sel1;
@@ -75,8 +84,6 @@ public class CharacterListScreenController implements Initializable {
     public Button sel3;
     @FXML
     public Button sel4;
-
-
     public void button1(ActionEvent event){
         avatarImage.setVisible(true);
         avatarImage1.setVisible(false);
@@ -121,7 +128,6 @@ public class CharacterListScreenController implements Initializable {
         sel4.setVisible(false);
 
     }
-
     public void switchToCreation(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterCreationScreen.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -140,12 +146,10 @@ public class CharacterListScreenController implements Initializable {
         paneCh2.setVisible(false);
         paneCh3.setVisible(false);
         paneCh4.setVisible(false);
-
         avatarImage.setVisible(false);
         avatarImage1.setVisible(false);
         avatarImage2.setVisible(false);
         avatarImage3.setVisible(false);
-
 
         player.setText(LoginController.usernam);
 
@@ -193,14 +197,16 @@ public class CharacterListScreenController implements Initializable {
         {
             JSONObject obj2 = iterator.next();
             if(i==0){
+
                 labelCh1.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh1.setVisible(true);
+                l1=(String)obj2.get("Character name:");
                 avatarImage.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
-
             }
             if(i==1){
                 labelCh2.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh2.setVisible(true);
+                l2=(String) obj2.get("Character name:");
                 avatarImage1.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
 
@@ -208,6 +214,7 @@ public class CharacterListScreenController implements Initializable {
             if(i==2){
                 labelCh3.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh3.setVisible(true);
+                l3=(String) obj2.get("Character name:");
                 avatarImage2.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
 
@@ -215,6 +222,7 @@ public class CharacterListScreenController implements Initializable {
             if(i==3){
                 labelCh4.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneCh4.setVisible(true);
+                 l4=(String) obj2.get("Character name:");
                 avatarImage3.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
 
@@ -224,6 +232,38 @@ public class CharacterListScreenController implements Initializable {
 
 
         }
+
+
+    }
+
+    public void handleDelete(ActionEvent event)
+    {
+        String name=User.deletionkey(deletionKey.getText());
+        //System.out.println(l1);
+        //System.out.println(name);
+        if(name.equals(l1))
+        {
+            paneCh1.setVisible(false);
+
+        }
+        else if(name.equals(l2))
+        {
+            paneCh2.setVisible(false);
+
+        }
+        else if(name.equals(l3))
+        {
+            paneCh3.setVisible(false);
+
+        }
+        else if(name.equals(l3))
+        {
+            paneCh4.setVisible(false);
+
+        }
+
+
+
 
 
     }
