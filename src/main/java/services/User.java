@@ -1,5 +1,6 @@
 package services;
 
+import controllers.AdminCharacterCreationController;
 import controllers.LoginController;
 import exceptions.*;
 import org.json.simple.parser.JSONParser;
@@ -180,10 +181,17 @@ public class User {
 
                 JSONArray avatars=new JSONArray();
                 avatars=(JSONArray) obj2.get("Character:");
+                Iterator<JSONObject> iterator2 = avatars.iterator();
                 if(avatars.size()==4)
                 {
                     throw new TooManyCharException();
                 }
+                JSONObject obj4 = iterator2.next();
+                if((nameAvatar.equals((String)obj4.get("Character name:"))))
+                {
+                    throw new NameNotAvailableException();
+                }
+
                 obj2.remove("Character:");
                 obj3.put("Character name:", nameAvatar);
                 obj3.put("Deletion key:", deletionKeyAvatar);

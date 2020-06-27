@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
@@ -26,6 +27,18 @@ public class AdminCharacterListScreenController implements Initializable {
 
     @FXML
     public Label selectedPlayer;
+
+    @FXML
+    public Button sel11;
+
+    @FXML
+    public Button sel22;
+
+    @FXML
+    public Button sel33;
+
+    @FXML
+    public Button sel44;
 
     @FXML
     public Button createBttn;
@@ -56,6 +69,18 @@ public class AdminCharacterListScreenController implements Initializable {
 
     @FXML
     public Label labelAd4;
+
+    @FXML
+    public ImageView avatarImage11;
+
+    @FXML
+    public ImageView avatarImage22;
+
+    @FXML
+    public ImageView avatarImage33;
+
+    @FXML
+    public ImageView avatarImage44;
 
     String lab1, lab2, lab3, lab4;
 
@@ -103,27 +128,27 @@ public class AdminCharacterListScreenController implements Initializable {
                 labelAd1.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd1.setVisible(true);
                 lab1=(String)obj2.get("Character name:");
-                //avatarImage.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
+                avatarImage11.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
             }
             if(i==1){
                 labelAd2.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd2.setVisible(true);
                 lab2=(String) obj2.get("Character name:");
-                //avatarImage1.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
+                avatarImage22.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
             }
             if(i==2){
                 labelAd3.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd3.setVisible(true);
                 lab3=(String) obj2.get("Character name:");
-                //avatarImage2.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
+                avatarImage33.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
             }
             if(i==3){
                 labelAd4.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd4.setVisible(true);
                 lab4=(String) obj2.get("Character name:");
-             //   avatarImage3.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
+                avatarImage44.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
             }
 
@@ -141,6 +166,47 @@ public class AdminCharacterListScreenController implements Initializable {
         app_stage.show();
     }
 
+    public void button11(ActionEvent event){
+        avatarImage11.setVisible(true);
+        avatarImage22.setVisible(false);
+        avatarImage33.setVisible(false);
+        avatarImage44.setVisible(false);
+        sel11.setVisible(false);
+        sel22.setVisible(true);
+        sel33.setVisible(true);
+        sel44.setVisible(true);
+    }
+    public void button22(ActionEvent event){
+        avatarImage11.setVisible(false);
+        avatarImage22.setVisible(true);
+        avatarImage33.setVisible(false);
+        avatarImage44.setVisible(false);
+        sel11.setVisible(true);
+        sel22.setVisible(false);
+        sel33.setVisible(true);
+        sel44.setVisible(true);
+    }
+    public void button33(ActionEvent event){
+        avatarImage11.setVisible(false);
+        avatarImage22.setVisible(false);
+        avatarImage33.setVisible(true);
+        avatarImage44.setVisible(false);
+        sel11.setVisible(true);
+        sel22.setVisible(true);
+        sel33.setVisible(false);
+        sel44.setVisible(true);
+    }
+    public void button44(ActionEvent event){
+        avatarImage11.setVisible(false);
+        avatarImage22.setVisible(false);
+        avatarImage33.setVisible(false);
+        avatarImage44.setVisible(true);
+        sel11.setVisible(true);
+        sel22.setVisible(true);
+        sel33.setVisible(true);
+        sel44.setVisible(false);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         User.displayFeatures();
@@ -148,6 +214,10 @@ public class AdminCharacterListScreenController implements Initializable {
         paneAd2.setVisible(false);
         paneAd3.setVisible(false);
         paneAd4.setVisible(false);
+        avatarImage11.setVisible(false);
+        avatarImage22.setVisible(false);
+        avatarImage33.setVisible(false);
+        avatarImage44.setVisible(false);
         selectedPlayer.setText(LoginController.usernam);
         displayCh();
     }
