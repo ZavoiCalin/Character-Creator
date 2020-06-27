@@ -1,5 +1,6 @@
 package controllers;
 
+import exceptions.WrongDeletionKeyException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,6 +45,9 @@ public class AdminCharacterListScreenController implements Initializable {
     public Button createBttn;
 
     @FXML
+    public Button deleteBttn1;
+
+    @FXML
     public Button back;
 
     @FXML
@@ -69,6 +73,9 @@ public class AdminCharacterListScreenController implements Initializable {
 
     @FXML
     public Label labelAd4;
+
+    @FXML
+    public Label desc1, desc2, desc3, desc4;
 
     @FXML
     public ImageView avatarImage11;
@@ -124,27 +131,31 @@ public class AdminCharacterListScreenController implements Initializable {
         {
             JSONObject obj2 = iterator.next();
             if(i==0){
-                labelAd1.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
+                labelAd1.setText((String) obj2.get("Character name:"));
+                desc1.setText("Description: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd1.setVisible(true);
                 lab1=(String)obj2.get("Character name:");
                 avatarImage11.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
             }
             if(i==1){
-                labelAd2.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
+                labelAd2.setText((String) obj2.get("Character name:"));
+                desc2.setText("Description: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd2.setVisible(true);
                 lab2=(String) obj2.get("Character name:");
                 avatarImage22.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
             }
             if(i==2){
-                labelAd3.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
+                labelAd3.setText((String) obj2.get("Character name:"));
+                desc3.setText("Description: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd3.setVisible(true);
                 lab3=(String) obj2.get("Character name:");
                 avatarImage33.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
 
             }
             if(i==3){
-                labelAd4.setText((String) obj2.get("Character name:")+"\nDescription: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
+                labelAd4.setText((String) obj2.get("Character name:"));
+                desc4.setText("Description: "+(String) obj2.get("Gender:")+" "+(String) obj2.get("Ears:")+" "+(String) obj2.get("Eye color:")+" "+(String) obj2.get("Hairstyle:"));
                 paneAd4.setVisible(true);
                 lab4=(String) obj2.get("Character name:");
                 avatarImage44.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
@@ -205,6 +216,28 @@ public class AdminCharacterListScreenController implements Initializable {
         sel33.setVisible(true);
         sel44.setVisible(false);
     }
+
+    public void deleteChar1(ActionEvent event) throws WrongDeletionKeyException {
+        try {
+            if (avatarImage11.isVisible()) {
+                paneAd1.setVisible(false);
+                String name = User.deletionkeyadmin(labelAd1.getText());
+
+            } else if (avatarImage22.isVisible()) {
+                paneAd2.setVisible(false);
+              String name =  User.deletionkeyadmin(labelAd2.getText());
+            } else if (avatarImage33.isVisible()) {
+                paneAd3.setVisible(false);
+                String name =  User.deletionkeyadmin(labelAd3.getText());
+            } else if (avatarImage44.isVisible()) {
+                paneAd4.setVisible(false);
+                String name =  User.deletionkeyadmin(labelAd4.getText());
+            }
+        }catch(WrongDeletionKeyException e){ }
+    }
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

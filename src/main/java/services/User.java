@@ -181,17 +181,17 @@ public class User {
 
                 JSONArray avatars=new JSONArray();
                 avatars=(JSONArray) obj2.get("Character:");
-                Iterator<JSONObject> iterator2 = avatars.iterator();
                 if(avatars.size()==4)
                 {
                     throw new TooManyCharException();
                 }
-                JSONObject obj4 = iterator2.next();
-                if((nameAvatar.equals((String)obj4.get("Character name:"))))
-                {
-                    throw new NameNotAvailableException();
+                if(avatars.size() != 0) {
+                    Iterator<JSONObject> iterator2 = avatars.iterator();
+                    JSONObject obj4 = iterator2.next();
+                    if ((nameAvatar.equals((String) obj4.get("Character name:")))) {
+                        throw new NameNotAvailableException();
+                    }
                 }
-
                 obj2.remove("Character:");
                 obj3.put("Character name:", nameAvatar);
                 obj3.put("Deletion key:", deletionKeyAvatar);
@@ -257,36 +257,7 @@ public class User {
         return display;
 
     }
-    /*
-    public static JSONArray displayPlayers()
-    {
-        JSONArray arrayPlayer = new JSONArray();
-        JSONParser jp = new JSONParser();
-        Object p;
-        try {
-            FileReader readFile = new FileReader("src/main/resources/Player.json");
-            BufferedReader read = new BufferedReader(readFile);
-            p = jp.parse(read);
-            if (p instanceof JSONArray) {
-                arrayPlayer = (JSONArray) p;
-            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        Iterator<JSONObject> iterator = arrayPlayer.iterator();
-        JSONArray display = new JSONArray();
-        while (iterator.hasNext())
-        {
-            JSONObject obj = iterator.next();
-            //JSONObject obj2 = iterator.next();
-            display = (JSONArray) obj.get("Username:");
-        }
-        System.out.println(display);
-        return display;
-    }*/
 
 
     private static void checkIfFieldsAreEmpty(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException{
@@ -329,6 +300,71 @@ public class User {
                     obj3 = iterator2.next();
 
                     if (obj3.get("Deletion key:").equals(key)) {
+                        name=(String)obj3.get("Character name:");
+                        obj4=obj3;
+                        b=true;
+                        break;
+
+
+
+                    }
+                }
+                if(b==false)
+                {
+                    throw new WrongDeletionKeyException();
+                }
+
+                ((JSONArray)obj2.get("Character:")).remove(obj4);
+                break;
+
+            }
+        }
+        try {
+            File file = new File("src/main/resources/Player.json");
+            FileWriter fisier = new FileWriter(file.getAbsoluteFile());
+            fisier.write(arrayPlayer.toJSONString());
+            fisier.flush();
+            fisier.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return name;
+    }
+    public static String deletionkeyadmin(String key) throws WrongDeletionKeyException {
+        JSONObject obj = new JSONObject();
+        String name=null;
+        JSONArray arrayPlayer = new JSONArray();
+        JSONParser jp = new JSONParser();
+        Object p;
+        try {
+            FileReader readFile = new FileReader("src/main/resources/Player.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = jp.parse(read);
+            if (p instanceof JSONArray) {
+                arrayPlayer = (JSONArray) p;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Iterator<JSONObject> iterator = arrayPlayer.iterator();
+
+        JSONObject obj3 = new JSONObject();
+        while (iterator.hasNext()) {
+            JSONObject obj2 = iterator.next();
+            if ((LoginController.usernam).equals(obj2.get("Username:"))) {
+                boolean b=false;
+                JSONArray avatars = new JSONArray();
+                avatars = ((JSONArray)obj2.get("Character:"));
+                JSONObject obj4= new JSONObject();
+
+                Iterator<JSONObject> iterator2 = avatars.iterator();
+                while (iterator2.hasNext()) {
+                    obj3 = iterator2.next();
+
+                    if (obj3.get("Character name:").equals(key)) {
                         name=(String)obj3.get("Character name:");
                         obj4=obj3;
                         b=true;
