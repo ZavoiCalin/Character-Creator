@@ -14,7 +14,7 @@
             <children>
                 <Pane fx:id="paneAd1" layoutX="17.0" layoutY="14.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
                     <children>
-                        <Label fx:id="labelAd1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                        <Label fx:id="labelAd1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="42.0" prefWidth="480.0" text="safafsfasfafs">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="20.0" />
                             </font>
@@ -25,10 +25,15 @@
                      </font>
                   </Button>
                   <ImageView fx:id="avatarImage11" fitHeight="137.0" fitWidth="202.0" layoutX="429.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="desc1" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="79.0" prefHeight="64.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
                     </children></Pane>
                 <Pane fx:id="paneAd2" layoutX="17.0" layoutY="183.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
                     <children>
-                        <Label fx:id="labelAd2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                        <Label fx:id="desc2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="78.0" prefHeight="66.0" prefWidth="480.0" text="safafsfasfafs">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="20.0" />
                             </font>
@@ -39,10 +44,15 @@
                      </font>
                   </Button>
                   <ImageView fx:id="avatarImage22" fitHeight="137.0" fitWidth="202.0" layoutX="430.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="labelAd2" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="11.0" prefHeight="36.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
                     </children></Pane>
                 <Pane fx:id="paneAd3" layoutX="17.0" layoutY="353.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
                     <children>
-                        <Label fx:id="labelAd3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                        <Label fx:id="labelAd3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="480.0" text="safafsfasfafs">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="20.0" />
                             </font>
@@ -53,10 +63,15 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <Label fx:id="desc3" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="77.0" prefHeight="66.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
                     </children></Pane>
                 <Pane fx:id="paneAd4" layoutX="17.0" layoutY="527.0" prefHeight="157.0" prefWidth="665.0" style="-fx-background-color: #7fe7#daf2dcdc; -fx-background-radius: 10; -fx-border-radius: 10;">
                     <children>
-                        <Label fx:id="labelAd4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="130.0" prefWidth="480.0" text="safafsfasfafs">
+                        <Label fx:id="labelAd4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="480.0" text="safafsfasfafs">
                             <font>
                                 <Font name="DejaVu Sans Mono Bold" size="20.0" />
                             </font>
@@ -67,6 +82,11 @@
                      </font>
                   </Button>
                   <ImageView fx:id="avatarImage44" fitHeight="137.0" fitWidth="202.0" layoutX="433.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="desc4" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="77.0" prefHeight="66.0" prefWidth="480.0" text="safafsfasfafs">
+                     <font>
+                        <Font name="DejaVu Sans Mono Bold" size="20.0" />
+                     </font>
+                  </Label>
                     </children></Pane>
             </children></Pane>
         <Pane layoutX="14.0" layoutY="14.0" prefHeight="101.0" prefWidth="145.0" style="-fx-background-color: #ccccff; -fx-border-radius: 10; -fx-background-radius: 10;">
@@ -85,6 +105,7 @@
         </Label>
         <Label fx:id="errorDeleteLabel" layoutX="502.0" layoutY="835.0" prefHeight="23.0" prefWidth="458.0" textFill="#eb0707" />
       <Button fx:id="back" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="749.0" mnemonicParsing="false" onAction="#goBackToPlayerSelection" prefHeight="65.0" prefWidth="102.0" text="Back" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="createBttn" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="649.0" mnemonicParsing="false" onAction="#adminCreateNewCharacter" prefHeight="65.0" prefWidth="102.0" text="Create new character" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="createBttn" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="663.0" mnemonicParsing="false" onAction="#adminCreateNewCharacter" prefHeight="65.0" prefWidth="102.0" text="Create new character" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="deleteBttn1" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="575.0" mnemonicParsing="false" onAction="#deleteChar1" prefHeight="65.0" prefWidth="102.0" text="Delete character" textAlignment="CENTER" wrapText="true" />
     </children>
 </AnchorPane>
