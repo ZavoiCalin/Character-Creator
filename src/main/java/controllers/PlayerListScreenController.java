@@ -131,39 +131,10 @@ public class PlayerListScreenController implements Initializable {
             app_stage.show();
         }
     }
-    /*
-    public void displayPl() {
-        //try {
-        JSONArray array = new JSONArray();
-        array = User.displayPlayers();
-        Iterator<JSONArray> iterator = array.iterator();
-        for (int i = 0; i < array.size(); i++) {
-            JSONArray obj3 = iterator.next();
-            if (i == 0) {
-                label1.setText((String) obj3.get("Username:"));
-                l1 = (String) obj3.get("Username:");
-                System.out.println(l1);
-            }
-            if (i == 1) {
-                label2.setText((String) obj3.get("Username:"));
-                l2 = (String) obj3.get("Username:");
-                System.out.println(l2);
-            }
-            if (i == 2) {
-                label3.setText((String) obj3.get("Username:"));
-                l3 = (String) obj3.get("Username:");
-                System.out.println(l3);
-            }
-            if (i == 3) {
-                label4.setText((String) obj3.get("Username:"));
-                l4 = (String) obj3.get("Username:");
-                System.out.println(l4);
-            }
-        }
-    }*/
+
 
     @Override
     public void initialize (URL location, ResourceBundle resources){
-        admin.setText(LoginController.usernam);
+        admin.setText("admin");
     }
 }
