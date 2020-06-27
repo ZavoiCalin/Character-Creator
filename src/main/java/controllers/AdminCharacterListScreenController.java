@@ -28,6 +28,9 @@ public class AdminCharacterListScreenController implements Initializable {
     public Label selectedPlayer;
 
     @FXML
+    public Button createBttn;
+
+    @FXML
     public Button back;
 
     @FXML
@@ -64,6 +67,7 @@ public class AdminCharacterListScreenController implements Initializable {
         app_stage.setScene(home_page_scene);
         app_stage.show();
     }
+
     public Image getPath(String gender, String  ears, String eyes, String hair){
         String p="src/main/resources/images/";
         if(gender.equals("Male"))
@@ -128,6 +132,14 @@ public class AdminCharacterListScreenController implements Initializable {
 
     }
 
+    public void adminCreateNewCharacter(ActionEvent event) throws IOException {
+        Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("AdminCharacterCreationScreen.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.hide();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
