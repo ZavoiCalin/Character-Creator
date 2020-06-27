@@ -117,7 +117,6 @@ public class AdminCharacterListScreenController implements Initializable {
     }
 
     public void displayCh()  {
-        //try {
         JSONArray array=new JSONArray();
         array=User.displayFeatures();
         Iterator<JSONObject> iterator = array.iterator();
