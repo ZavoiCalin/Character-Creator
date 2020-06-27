@@ -82,6 +82,38 @@ public class User {
         return "";
     }
 
+    public static String checkPlayer(String username) {
+        JSONParser parser = new JSONParser();
+        Object p;
+        JSONArray arrayPlayer = new JSONArray();
+        try {
+            FileReader readFile = new FileReader("src/main/resources/Player.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = parser.parse(read);
+            if (p instanceof JSONArray) {
+                arrayPlayer = (JSONArray) p;
+            }
+        } catch (ParseException parseException) {
+            parseException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+        Iterator<JSONObject> iterator = arrayPlayer.iterator();
+
+        while (iterator.hasNext())
+        {
+            JSONObject obj = iterator.next();
+            if (obj.get("Username:").equals(username))
+            {
+                correctAccount = true;
+                LoginController.usernam = (String)obj.get("Username:");
+                return "Player";
+            }
+        }
+        return "";
+    }
+
+
     public static String loginCheckAdmin(String username, String password)throws IncorrectCredentialsException {
         JSONParser parser = new JSONParser();
         Object p;

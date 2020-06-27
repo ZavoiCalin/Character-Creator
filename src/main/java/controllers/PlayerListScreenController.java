@@ -2,14 +2,20 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import services.User;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -66,24 +72,64 @@ public class PlayerListScreenController implements Initializable {
     @FXML
     public Button select5;
 
-    public void buttonPl1(ActionEvent event) {
-
+    public void buttonPl1(ActionEvent event) throws IOException {
+        if ((User.checkPlayer(label1.getText()).equals("Player")))
+        {
+            Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("AdminCharacterListScreen.fxml"));
+            Scene home_page_scene = new Scene(home_page_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(home_page_scene);
+            app_stage.show();
+        }
     }
 
-    public void buttonPl2(ActionEvent event) {
-
+    public void buttonPl2(ActionEvent event) throws IOException {
+        if ((User.checkPlayer(label2.getText()).equals("Player")))
+        {
+            Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("AdminCharacterListScreen.fxml"));
+            Scene home_page_scene = new Scene(home_page_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(home_page_scene);
+            app_stage.show();
+        }
     }
 
-    public void buttonPl3(ActionEvent event) {
-
+    public void buttonPl3(ActionEvent event) throws IOException {
+        if ((User.checkPlayer(label3.getText()).equals("Player")))
+        {
+            Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("AdminCharacterListScreen.fxml"));
+            Scene home_page_scene = new Scene(home_page_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(home_page_scene);
+            app_stage.show();
+        }
     }
 
-    public void buttonPl4(ActionEvent event) {
-
+    public void buttonPl4(ActionEvent event) throws IOException {
+        if ((User.checkPlayer(label4.getText()).equals("Player")))
+        {
+            Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("AdminCharacterListScreen.fxml"));
+            Scene home_page_scene = new Scene(home_page_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(home_page_scene);
+            app_stage.show();
+        }
     }
 
-    public void buttonPl5(ActionEvent event) {
-
+    public void buttonPl5(ActionEvent event) throws IOException {
+        if ((User.checkPlayer(label5.getText()).equals("Player")))
+        {
+            Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("AdminCharacterListScreen.fxml"));
+            Scene home_page_scene = new Scene(home_page_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(home_page_scene);
+            app_stage.show();
+        }
     }
     /*
     public void displayPl() {
