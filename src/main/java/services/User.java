@@ -217,6 +217,36 @@ public class User {
         return display;
 
     }
+    /*
+    public static JSONArray displayPlayers()
+    {
+        JSONArray arrayPlayer = new JSONArray();
+        JSONParser jp = new JSONParser();
+        Object p;
+        try {
+            FileReader readFile = new FileReader("src/main/resources/Player.json");
+            BufferedReader read = new BufferedReader(readFile);
+            p = jp.parse(read);
+            if (p instanceof JSONArray) {
+                arrayPlayer = (JSONArray) p;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Iterator<JSONObject> iterator = arrayPlayer.iterator();
+        JSONArray display = new JSONArray();
+        while (iterator.hasNext())
+        {
+            JSONObject obj = iterator.next();
+            //JSONObject obj2 = iterator.next();
+            display = (JSONArray) obj.get("Username:");
+        }
+        System.out.println(display);
+        return display;
+    }*/
 
 
     private static void checkIfFieldsAreEmpty(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException{
