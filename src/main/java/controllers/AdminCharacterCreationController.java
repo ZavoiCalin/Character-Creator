@@ -104,7 +104,6 @@ public class AdminCharacterCreationController implements Initializable {
         }
         catch (EmptyCharNameException e)
         {
-            //error if not all fields are completed
             creationErrorLabel1.setText(e.getMessage());
         }
         catch(NameNotAvailableException e)
@@ -114,9 +113,7 @@ public class AdminCharacterCreationController implements Initializable {
 
         catch(TooManyCharException e)
         {
-
             creationErrorLabel1.setText(e.getMessage());
-
         }
     }
 
