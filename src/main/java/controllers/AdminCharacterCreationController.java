@@ -91,8 +91,7 @@ public class AdminCharacterCreationController implements Initializable {
 
     @FXML
     public void createChar1(ActionEvent event) throws IOException {
-        try
-        {
+        try {
             User.addCharacter(nameAvatar1.getText(), deletionKeyAvatar1.getText(), (String)genderComboBox1.getValue(), (String)earsComboBox1.getValue(), (String)eyeColorComboBox1.getValue(), (String)hairstyleComboBox1.getValue());
 
             Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("AdminCharacterListScreen.fxml"));
@@ -102,17 +101,13 @@ public class AdminCharacterCreationController implements Initializable {
             app_stage.setScene(home_page_scene);
             app_stage.show();
         }
-        catch (EmptyCharNameException e)
-        {
+        catch (EmptyCharNameException e) {
             creationErrorLabel1.setText(e.getMessage());
         }
-        catch(NameNotAvailableException e)
-        {
+        catch(NameNotAvailableException e) {
             creationErrorLabel1.setText(e.getMessage());
         }
-
-        catch(TooManyCharException e)
-        {
+        catch(TooManyCharException e) {
             creationErrorLabel1.setText(e.getMessage());
         }
     }
