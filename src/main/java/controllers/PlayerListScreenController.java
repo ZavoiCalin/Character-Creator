@@ -132,9 +132,9 @@ public class PlayerListScreenController implements Initializable {
         }
     }
 
-
     @Override
     public void initialize (URL location, ResourceBundle resources){
         admin.setText("admin");
     }
+
 }

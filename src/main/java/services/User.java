@@ -26,16 +26,7 @@ public class User {
 
     public static String Vector = "RandomInitVector";
 
-    private static void checkIfFieldsAreEmptyPlayer(String username, String password) throws EmptyFieldException {
-        if (username.isEmpty() | password.isEmpty())
-            throw new EmptyFieldException();
-    }
-
-    private static void checkIfFieldsAreEmptyAdmin(String username, String password) throws EmptyFieldException {
-        if (username.isEmpty() | password.isEmpty())
-            throw new EmptyFieldException();
-    }
-
+    // Tested
     public static String encodePassword(String key, String initVector, String value) {
         try {
             IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
@@ -52,7 +43,8 @@ public class User {
 
     static boolean correctAccount = false;
 
-    public static String loginCheckPlayer(String username, String password) throws IncorrectCredentialsException {
+    // Tested
+    public static String loginCheckPlayer(String username, String password) {
         JSONParser parser = new JSONParser();
         Object p;
         JSONArray arrayPlayer = new JSONArray();
@@ -114,8 +106,8 @@ public class User {
         return "";
     }
 
-
-    public static String loginCheckAdmin(String username, String password)throws IncorrectCredentialsException {
+    // Tested
+    public static String loginCheckAdmin(String username, String password) {
         JSONParser parser = new JSONParser();
         Object p;
         JSONArray arrayAdmin = new JSONArray();
@@ -146,6 +138,7 @@ public class User {
         return"";
     }
 
+    // Tested
     public static void checkIncorrect() throws IncorrectCredentialsException {
         if(!correctAccount)
         {
@@ -220,8 +213,7 @@ public class User {
 
     }
 
-    public static JSONArray displayFeatures()
-    {
+    public static JSONArray displayFeatures() {
         JSONArray arrayPlayer = new JSONArray();
         JSONParser jp = new JSONParser();
         Object p;
@@ -258,9 +250,8 @@ public class User {
 
     }
 
-
-
-    private static void checkIfFieldsAreEmpty(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException{
+    // Tested
+    public static void checkIfFieldsAreEmpty(String nameAvatar, String deletionKeyAvatar, String genderListObs, String earListObs, String eyeColorListObs, String hairstyleListObs) throws EmptyCharNameException{
         if(nameAvatar.isEmpty() | deletionKeyAvatar.isEmpty() | genderListObs==null | earListObs==null | eyeColorListObs==null | hairstyleListObs==null)
             throw new EmptyCharNameException();
 
@@ -331,6 +322,7 @@ public class User {
 
         return name;
     }
+
     public static String deletionkeyadmin(String key) throws WrongDeletionKeyException {
         JSONObject obj = new JSONObject();
         String name=null;

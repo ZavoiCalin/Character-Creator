@@ -63,8 +63,11 @@ public class CharacterCreationController implements Initializable {
     @FXML
     public Button createCancelButton;
 
+    public String p;
+
+    // Tested
     public void getPath(){
-        String p="src/main/resources/images/";
+        p="src/main/resources/images/";
 
         if(((String)genderComboBox.getValue()).equals("Male"))
             p+="m";
@@ -91,7 +94,7 @@ public class CharacterCreationController implements Initializable {
         avatarImage.setImage(image);
     }
 
-    @FXML
+    @FXML // Tested
     public void createChar(ActionEvent event) throws IOException {
         try
         {
@@ -116,15 +119,13 @@ public class CharacterCreationController implements Initializable {
 
         catch(TooManyCharException e)
         {
-
-                creationErrorLabel.setText(e.getMessage());
-
+            creationErrorLabel.setText(e.getMessage());
         }
     }
 
-    @FXML
+    @FXML // Tested
     public void applyFeatures(ActionEvent event){
-            this.getPath();
+        this.getPath();
     }
 
     @Override
