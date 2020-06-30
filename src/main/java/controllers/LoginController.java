@@ -33,11 +33,8 @@ public class LoginController implements Initializable {
 
     public static String usernam;
 
-
-
-
-    @FXML
-    public void handleLoginButtonAction(ActionEvent event) throws IOException, IncorrectCredentialsException {
+    @FXML // Tested
+    public void handleLoginButtonAction(ActionEvent event) throws IOException {
         try {
             //verify if the user is a Player
             if((User.loginCheckPlayer(userTextField.getText(),passwordTextField.getText()).equals("Player")))
@@ -62,27 +59,23 @@ public class LoginController implements Initializable {
                 app_stage.setScene(home_page_scene);
                 app_stage.show();
                 usernam = userTextField.getText();
-
             }
             //if the user is none of the above throw exception
             else
             {
                 User.checkIncorrect();
             }
-
         }
         catch (IncorrectCredentialsException e)
         {
             //error if not all fields are completed
             ErrorMessage.setText(e.getMessage());
         }
-
+    // Test Exceptie
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //usernam=userTextField.getText();
     }
-
 
 }

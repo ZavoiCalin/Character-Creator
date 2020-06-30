@@ -27,6 +27,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminCharacterCreationController implements Initializable {
+
     @FXML
     public ComboBox<String> genderComboBox1;
     ObservableList<String> genderListObs1= FXCollections.observableArrayList ("Male","Female");
@@ -61,8 +62,11 @@ public class AdminCharacterCreationController implements Initializable {
     @FXML
     public Button createCancelButton1;
 
+    public String p;
+
+    // Tested
     public void getPath(){
-        String p="src/main/resources/images/";
+        p="src/main/resources/images/";
 
         if(((String)genderComboBox1.getValue()).equals("Male"))
             p+="m";
@@ -89,7 +93,7 @@ public class AdminCharacterCreationController implements Initializable {
         avatarImage1.setImage(image);
     }
 
-    @FXML
+    @FXML // Tested
     public void createChar1(ActionEvent event) throws IOException {
         try {
             User.addCharacter(nameAvatar1.getText(), deletionKeyAvatar1.getText(), (String)genderComboBox1.getValue(), (String)earsComboBox1.getValue(), (String)eyeColorComboBox1.getValue(), (String)hairstyleComboBox1.getValue());
@@ -112,7 +116,7 @@ public class AdminCharacterCreationController implements Initializable {
         }
     }
 
-    @FXML
+    @FXML // Tested
     public void applyFeatures1(ActionEvent event){
         this.getPath();
     }

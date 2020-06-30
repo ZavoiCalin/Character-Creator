@@ -98,8 +98,8 @@ public class CharacterListScreenController implements Initializable {
         sel2.setVisible(true);
         sel3.setVisible(true);
         sel4.setVisible(true);
-
     }
+
     public void button2(ActionEvent event){
         avatarImage.setVisible(false);
         avatarImage1.setVisible(true);
@@ -109,8 +109,8 @@ public class CharacterListScreenController implements Initializable {
         sel2.setVisible(false);
         sel3.setVisible(true);
         sel4.setVisible(true);
-
     }
+
     public void button3(ActionEvent event){
         avatarImage.setVisible(false);
         avatarImage1.setVisible(false);
@@ -120,8 +120,8 @@ public class CharacterListScreenController implements Initializable {
         sel2.setVisible(true);
         sel3.setVisible(false);
         sel4.setVisible(true);
-
     }
+
     public void button4(ActionEvent event){
         avatarImage.setVisible(false);
         avatarImage1.setVisible(false);
@@ -131,8 +131,8 @@ public class CharacterListScreenController implements Initializable {
         sel2.setVisible(true);
         sel3.setVisible(true);
         sel4.setVisible(false);
-
     }
+
     public void switchToCreation(ActionEvent event) throws IOException {
         Parent home_page_parent = FXMLLoader.load(getClass().getClassLoader().getResource("CharacterCreationScreen.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -140,7 +140,6 @@ public class CharacterListScreenController implements Initializable {
         app_stage.hide();
         app_stage.setScene(home_page_scene);
         app_stage.show();
-
     }
 
     @Override
@@ -162,10 +161,10 @@ public class CharacterListScreenController implements Initializable {
 
     }
 
-
+    String p;
 
     public Image getPath(String gender, String  ears, String eyes, String hair){
-        String p="src/main/resources/images/";
+        p="src/main/resources/images/";
 
         if(gender.equals("Male"))
             p+="m";
@@ -191,8 +190,8 @@ public class CharacterListScreenController implements Initializable {
         Image image = new Image(file.toURI().toString());
         return image;
     }
+
     public void displayCh()  {
-        //try {
         JSONArray array=new JSONArray();
         array=User.displayFeatures();
 
@@ -229,25 +228,14 @@ public class CharacterListScreenController implements Initializable {
                 paneCh4.setVisible(true);
                  l4=(String) obj2.get("Character name:");
                 avatarImage3.setImage(getPath((String) obj2.get("Gender:"),(String) obj2.get("Ears:"),(String) obj2.get("Eye color:"),(String) obj2.get("Hairstyle:")));
-
-
             }
-
-
-
-
         }
-
-
     }
 
-    public void handleDelete(ActionEvent event) throws WrongDeletionKeyException {
-
+    // Tested
+    public void handleDelete(ActionEvent event) {
         try {
             String name = User.deletionkey(deletionKey.getText());
-            //System.out.println(l1);
-            //System.out.println(name);
-
             if (name.equals(l1)) {
                 paneCh1.setVisible(false);
                 errorDeleteLabel.setText("");
@@ -266,7 +254,5 @@ public class CharacterListScreenController implements Initializable {
        }catch(WrongDeletionKeyException e){
            errorDeleteLabel.setText(e.getMessage());
         }
-
     }
-
 }

@@ -1,11 +1,14 @@
 package services;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
 import java.net.URL;
+
 public class FxmlLoader {
+
     private Pane view;
-    public Pane getPage(String fileName)
-    {
+
+    public Pane getPage(String fileName) {
         try
         {
             URL fileUrl=getClass().getClassLoader().getResource(fileName+".fxml");
@@ -21,7 +24,5 @@ public class FxmlLoader {
         }
         return view;
     }
-
-
 
 }

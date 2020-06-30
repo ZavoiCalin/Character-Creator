@@ -100,8 +100,11 @@ public class AdminCharacterListScreenController implements Initializable {
         app_stage.show();
     }
 
+    String p;
+
+    // Tested
     public Image getPath(String gender, String  ears, String eyes, String hair){
-        String p="src/main/resources/images/";
+        p="src/main/resources/images/";
         if(gender.equals("Male"))
             p+="m";
         else p+="f";
@@ -186,6 +189,7 @@ public class AdminCharacterListScreenController implements Initializable {
         sel33.setVisible(true);
         sel44.setVisible(true);
     }
+
     public void button22(ActionEvent event){
         avatarImage11.setVisible(false);
         avatarImage22.setVisible(true);
@@ -196,6 +200,7 @@ public class AdminCharacterListScreenController implements Initializable {
         sel33.setVisible(true);
         sel44.setVisible(true);
     }
+
     public void button33(ActionEvent event){
         avatarImage11.setVisible(false);
         avatarImage22.setVisible(false);
@@ -206,6 +211,7 @@ public class AdminCharacterListScreenController implements Initializable {
         sel33.setVisible(false);
         sel44.setVisible(true);
     }
+
     public void button44(ActionEvent event){
         avatarImage11.setVisible(false);
         avatarImage22.setVisible(false);
@@ -217,12 +223,11 @@ public class AdminCharacterListScreenController implements Initializable {
         sel44.setVisible(false);
     }
 
-    public void deleteChar1(ActionEvent event) throws WrongDeletionKeyException {
+    public void deleteChar1(ActionEvent event) {
         try {
             if (avatarImage11.isVisible()) {
                 paneAd1.setVisible(false);
                 String name = User.deletionkeyadmin(labelAd1.getText());
-
             } else if (avatarImage22.isVisible()) {
                 paneAd2.setVisible(false);
               String name =  User.deletionkeyadmin(labelAd2.getText());
@@ -235,9 +240,6 @@ public class AdminCharacterListScreenController implements Initializable {
             }
         }catch(WrongDeletionKeyException e){ }
     }
-
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -253,4 +255,5 @@ public class AdminCharacterListScreenController implements Initializable {
         selectedPlayer.setText(LoginController.usernam);
         displayCh();
     }
+
 }
