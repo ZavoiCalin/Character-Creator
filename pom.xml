@@ -7,6 +7,7 @@
     <groupId>zavoi-calin.atlassian.net</groupId>
     <artifactId>Character_Creator</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -32,9 +33,12 @@
             <version>4.0.15-alpha</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>3.1.1</version>
+        </dependency>
     </dependencies>
-
-
 
     <build>
         <plugins>

@@ -34,6 +34,7 @@ public class User {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
             cipher.init(1, skeySpec, iv);
             byte[] encrypted = cipher.doFinal(value.getBytes());
+            //System.out.println("Hello!"); // Adaugat acum
             return Base64.getEncoder().encodeToString(encrypted);
         } catch (Exception ex) {
             ex.printStackTrace();
